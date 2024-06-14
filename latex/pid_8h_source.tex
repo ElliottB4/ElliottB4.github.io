@@ -1,0 +1,264 @@
+\doxysection{pid.\+h}
+\hypertarget{pid_8h_source}{}\label{pid_8h_source}\index{TermProject\_Code/Core/Inc/pid.h@{TermProject\_Code/Core/Inc/pid.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\string~\ File\ \ \ :\ pid.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\string~\ Author\ :\ Majid\ Derhambakhsh}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\string~\ Version:\ V1.0.0}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\string~\ Created:\ 02/11/2021\ 03:43:00\ AM}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\string~\ Brief\ \ :}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\string~\ Support:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ E-\/Mail\ :\ Majid.do16@gmail.com\ (subject\ :\ Embedded\ Library\ Support)}}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ Github\ :\ https://github.com/Majid-\/Derhambakhsh}}
+\DoxyCodeLine{00012\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\string~\ Description:}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\string~\ Attention\ \ :}}
+\DoxyCodeLine{00016\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\string~\ Changes\ \ \ \ :}}
+\DoxyCodeLine{00018\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ \_\_PID\_H\_}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \_\_PID\_H\_}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ Include\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifdef\ \_\_CODEVISIONAVR\_\_\ \ }\textcolor{comment}{/*\ Check\ compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#pragma\ warn\_unref\_func-\/\ }\textcolor{comment}{/*\ Disable\ 'unused\ function'\ warning\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)\ \&\&\ !defined(USE\_HAL\_DRIVER)\ \ }\textcolor{comment}{/*\ Check\ compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wunused-\/function"{}\ }\textcolor{comment}{/*\ Disable\ 'unused\ function'\ warning\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#elif\ defined(USE\_HAL\_DRIVER)\ \ }\textcolor{comment}{/*\ Check\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Check\ Mainstream\ series\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ STM32F0}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f0xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32F1)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f1xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32F2)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f2xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32F3)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f3xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32F4)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}\mbox{\hyperlink{stm32f4xx__hal_8h}{stm32f4xx\_hal.h}}"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32F7)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32f7xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32G0)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32g0xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32G4)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32g4xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Check\ High\ Performance\ series\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32H7)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32h7xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Check\ Ultra\ low\ power\ series\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32L0)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32l0xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32L1)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32l1xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32L5)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32l5xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32L4)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32l4xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(STM32H7)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ "{}stm32h7xx\_hal.h"{}}\ \ \ \ \ \ \ \textcolor{comment}{/*\ Import\ HAL\ library\ */}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{/*\ STM32F1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined\ (\ \_\_ICCARM\_\_\ )\ }\textcolor{comment}{/*\ ICCARM\ Compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ diag\_suppress=Pe177\ \ \ }\textcolor{comment}{/*\ Disable\ 'unused\ function'\ warning\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined\ \ \ (\ \ \_\_GNUC\_\_\ \ )\ }\textcolor{comment}{/*\ GNU\ Compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ diag\_suppress\ 177\ \ \ \ \ }\textcolor{comment}{/*\ Disable\ 'unused\ function'\ warning\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{/*\ \_\_ICCARM\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#else\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Compiler\ not\ found\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#error\ Chip\ or\ Library\ not\ supported\ \ }\textcolor{comment}{/*\ Send\ error\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_CODEVISIONAVR\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ Defines\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00108\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Library\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ \_PID\_LIBRARY\_VERSION\ \ \ \ 1.0.0}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Public\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ \_PID\_8BIT\_PWM\_MAX\ \ \ \ \ \ \ UINT8\_MAX}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ \_PID\_SAMPLE\_TIME\_MS\_DEF\ 100}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#ifndef\ \_FALSE}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_FALSE\ 0}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#ifndef\ \_TRUE}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_TRUE\ 1}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ By\ compiler\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#ifndef\ GetTime}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ By\ compiler\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_\_CODEVISIONAVR\_\_\ \ }\textcolor{comment}{/*\ Check\ compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ GetTime()\ \ \ 0}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_GNUC\_\_)\ \&\&\ !defined(USE\_HAL\_DRIVER)\ \ }\textcolor{comment}{/*\ Check\ compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ GetTime()\ \ \ 0}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(USE\_HAL\_DRIVER)\ \ }\textcolor{comment}{/*\ Check\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ GetTime()\ \ \ HAL\_GetTick()}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{/*\ \_\_CODEVISIONAVR\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ Types\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00159\ \textcolor{comment}{/*\ PID\ Mode\ */}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ }
+\DoxyCodeLine{00163\ \ \ \ \ \_PID\_MODE\_MANUAL\ \ \ \ =\ 0,}
+\DoxyCodeLine{00164\ \ \ \ \ \_PID\_MODE\_AUTOMATIC\ =\ 1}
+\DoxyCodeLine{00165\ \ \ \ \ }
+\DoxyCodeLine{00166\ \}PIDMode\_TypeDef;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{comment}{/*\ PID\ P\ On\ x\ */}}
+\DoxyCodeLine{00169\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00170\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ \_PID\_P\_ON\_M\ =\ 0,\ \textcolor{comment}{/*\ Proportional\ on\ Measurement\ */}}
+\DoxyCodeLine{00173\ \ \ \ \ \_PID\_P\_ON\_E\ =\ 1}
+\DoxyCodeLine{00174\ \ \ \ \ }
+\DoxyCodeLine{00175\ \}PIDPON\_TypeDef;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{comment}{/*\ PID\ Control\ direction\ */}}
+\DoxyCodeLine{00178\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00179\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ \ \_PID\_CD\_DIRECT\ \ =\ 0,}
+\DoxyCodeLine{00182\ \ \ \ \ \_PID\_CD\_REVERSE\ =\ 1}
+\DoxyCodeLine{00183\ \ \ \ \ }
+\DoxyCodeLine{00184\ \}PIDCD\_TypeDef;}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{comment}{/*\ PID\ Structure\ */}}
+\DoxyCodeLine{00187\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00188\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ }
+\DoxyCodeLine{00190\ \ \ \ \ PIDPON\_TypeDef\ \ POnE;}
+\DoxyCodeLine{00191\ \ \ \ \ PIDMode\_TypeDef\ InAuto;}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ PIDPON\_TypeDef\ \ POn;}
+\DoxyCodeLine{00194\ \ \ \ \ PIDCD\_TypeDef\ \ \ ControllerDirection;}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ LastTime;}
+\DoxyCodeLine{00197\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ SampleTime;}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ DispKp;}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ DispKi;}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ DispKd;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ Kp;}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ Ki;}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ Kd;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ *MyInput;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ *MyOutput;}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ *MySetpoint;}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ OutputSum;}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ LastInput;}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ OutMin;}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ OutMax;}
+\DoxyCodeLine{00216\ \ \ \ \ }
+\DoxyCodeLine{00217\ \}\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ Variables\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00220\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ Enum\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00221\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ Struct\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00222\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ Class\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00223\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ Prototype\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00224\ \textcolor{comment}{/*\ ::::::::::::::\ Init\ :::::::::::::\ */}}
+\DoxyCodeLine{00225\ \textcolor{keywordtype}{void}\ PID\_Init(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keywordtype}{void}\ PID(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID,\ \textcolor{keywordtype}{double}\ *Input,\ \textcolor{keywordtype}{double}\ *Output,\ \textcolor{keywordtype}{double}\ *Setpoint,\ \textcolor{keywordtype}{double}\ Kp,\ \textcolor{keywordtype}{double}\ Ki,\ \textcolor{keywordtype}{double}\ Kd,\ PIDPON\_TypeDef\ POn,\ PIDCD\_TypeDef\ ControllerDirection);}
+\DoxyCodeLine{00228\ \textcolor{keywordtype}{void}\ PID2(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID,\ \textcolor{keywordtype}{double}\ *Input,\ \textcolor{keywordtype}{double}\ *Output,\ \textcolor{keywordtype}{double}\ *Setpoint,\ \textcolor{keywordtype}{double}\ Kp,\ \textcolor{keywordtype}{double}\ Ki,\ \textcolor{keywordtype}{double}\ Kd,\ PIDCD\_TypeDef\ ControllerDirection);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{comment}{/*\ :::::::::::\ Computing\ :::::::::::\ */}}
+\DoxyCodeLine{00231\ uint8\_t\ PID\_Compute(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{comment}{/*\ :::::::::::\ PID\ Mode\ ::::::::::::\ */}}
+\DoxyCodeLine{00234\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ PID\_SetMode(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID,\ PIDMode\_TypeDef\ Mode);}
+\DoxyCodeLine{00235\ PIDMode\_TypeDef\ PID\_GetMode(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{comment}{/*\ ::::::::::\ PID\ Limits\ :::::::::::\ */}}
+\DoxyCodeLine{00238\ \textcolor{keywordtype}{void}\ PID\_SetOutputLimits(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID,\ \textcolor{keywordtype}{double}\ Min,\ \textcolor{keywordtype}{double}\ Max);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{comment}{/*\ ::::::::::\ PID\ Tunings\ ::::::::::\ */}}
+\DoxyCodeLine{00241\ \textcolor{keywordtype}{void}\ PID\_SetTunings(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID,\ \textcolor{keywordtype}{double}\ Kp,\ \textcolor{keywordtype}{double}\ Ki,\ \textcolor{keywordtype}{double}\ Kd);}
+\DoxyCodeLine{00242\ \textcolor{keywordtype}{void}\ PID\_SetTunings2(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID,\ \textcolor{keywordtype}{double}\ Kp,\ \textcolor{keywordtype}{double}\ Ki,\ \textcolor{keywordtype}{double}\ Kd,\ PIDPON\_TypeDef\ POn);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \textcolor{comment}{/*\ :::::::::\ PID\ Direction\ :::::::::\ */}}
+\DoxyCodeLine{00245\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ PID\_SetControllerDirection(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID,\ PIDCD\_TypeDef\ Direction);}
+\DoxyCodeLine{00246\ PIDCD\_TypeDef\ PID\_GetDirection(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{comment}{/*\ :::::::::\ PID\ Sampling\ ::::::::::\ */}}
+\DoxyCodeLine{00249\ \textcolor{keywordtype}{void}\ PID\_SetSampleTime(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID,\ int32\_t\ NewSampleTime);}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{comment}{/*\ :::::::\ Get\ Tunings\ Param\ :::::::\ */}}
+\DoxyCodeLine{00252\ \textcolor{keywordtype}{double}\ PID\_GetKp(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID);}
+\DoxyCodeLine{00253\ \textcolor{keywordtype}{double}\ PID\_GetKi(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID);}
+\DoxyCodeLine{00254\ \textcolor{keywordtype}{double}\ PID\_GetKd(\mbox{\hyperlink{structPID__TypeDef}{PID\_TypeDef}}\ *uPID);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{comment}{/*\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ End\ of\ the\ program\ \string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\ */}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_PID\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,183 @@
+\doxysection{ITM\+\_\+\+Type Struct Reference}
+\hypertarget{structITM__Type}{}\label{structITM__Type}\index{ITM\_Type@{ITM\_Type}}
+
+
+Structure type to access the Instrumentation Trace Macrocell Register (ITM).  
+
+
+
+
+{\ttfamily \#include $<$core\+\_\+armv81mml.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga511e9942de8827513ce8d81137a88f9f}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+uint32\+\_\+t {\bfseries RESERVED0} \mbox{[}864U\mbox{]}
+\item 
+\+\_\+\+\_\+\+IOM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gaa6530efad3a727fb3cc8f509403b9948}{TER}}
+\item 
+uint32\+\_\+t {\bfseries RESERVED1} \mbox{[}15U\mbox{]}
+\item 
+\+\_\+\+\_\+\+IOM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gafe5e266862734ca1082ceddff7180688}{TPR}}
+\item 
+uint32\+\_\+t {\bfseries RESERVED2} \mbox{[}15U\mbox{]}
+\item 
+\+\_\+\+\_\+\+IOM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4111c001c1e56fd3f51d27c5a63b04e6}{TCR}}
+\item 
+uint32\+\_\+t {\bfseries RESERVED3} \mbox{[}32U\mbox{]}
+\item 
+uint32\+\_\+t {\bfseries RESERVED4} \mbox{[}43U\mbox{]}
+\item 
+\+\_\+\+\_\+\+OM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gacc9e51f871c357a9094105435b150d13}{LAR}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga7219432d03f6cd1d220f4fe10aef4880}{LSR}}
+\item 
+uint32\+\_\+t {\bfseries RESERVED5} \mbox{[}1U\mbox{]}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae370aa5dc47fe03310e1d847333030e7}{DEVARCH}}
+\item 
+uint32\+\_\+t {\bfseries RESERVED6} \mbox{[}3U\mbox{]}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga81f643aff0e4bed2638a618e2b1fd3bb}{DEVTYPE}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c002e97cda2375d7421ad6415b6a02f}{PID4}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gac085b26f43fefeef9a4cf5c2af5e4a38}{PID5}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga83ac5d00dee24cc7f805b5c147625593}{PID6}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gaf8aa73aeaf37bdf7dfd9f6c437ff2d2f}{PID7}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga6e3343cc3c4a8a5a6f14937882e9202a}{PID0}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gafa06959344f4991b00e6c545dd2fa30b}{PID1}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga63db39f871596d28e69c283288ea2eba}{PID2}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gac2d006eed52ba550a309e5f61ed9c401}{PID3}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga26bbad5d9e0f1d302611d52373aef839}{CID0}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4e60a608afd6433ecd943d95e417b80b}{CID1}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gad98950702e55d1851e91b22de07b11aa}{CID2}}
+\item 
+\+\_\+\+\_\+\+IM uint32\+\_\+t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gab9af64f413bf6f67e2a8044481292f67}{CID3}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gad943db2e520fc8c0953870b76cbc870d}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gaffaf81fa49c3fc6a3523f18d9efd55ed}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gacb0069848fa8670645f202e169ba5088}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga2fcf10331a8dff53cbce1d7e26cee2c8}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga76bac48af4e3b5bd834b579412ddf546}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gadc661e4fe19ae99a443be32bfa221480}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga21989bef1aa2ba2bb6c60601cba76a59}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga280db7e5c614e5b3b6f64adc5c87b361}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga5ae448f3cb59ba1e0347a1ed0b10ed21}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\_\_OM uint8\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_ga4c0550e859d614c607bd4b575f05425c}{u8}}\\
+\>\_\_OM uint16\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae93660eefe2482a8564fae9a1ca39739}{u16}}\\
+\>\_\_OM uint32\_t \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gae89dd50f788f12863c681fba1a5b60d1}{u32}}\\
+\} \mbox{\hyperlink{group__CMSIS__core__DebugFunctions_gaec56655fc2f4d9dde700538ad42db702}{PORT}} \mbox{[}32U\mbox{]}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure type to access the Instrumentation Trace Macrocell Register (ITM). 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__armv81mml_8h}{core\+\_\+armv81mml.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__armv8mml_8h}{core\+\_\+armv8mml.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm3_8h}{core\+\_\+cm3.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm33_8h}{core\+\_\+cm33.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm35p_8h}{core\+\_\+cm35p.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm4_8h}{core\+\_\+cm4.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm55_8h}{core\+\_\+cm55.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm7_8h}{core\+\_\+cm7.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm85_8h}{core\+\_\+cm85.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__sc300_8h}{core\+\_\+sc300.\+h}}\item 
+Term\+Project\+\_\+\+Code/\+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__starmc1_8h}{core\+\_\+starmc1.\+h}}\end{DoxyCompactItemize}
