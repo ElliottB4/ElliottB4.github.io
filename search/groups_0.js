@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cmsis_0',['CMSIS',['../group___c_m_s_i_s.html',1,'']]]
+  ['_5fsystick_20clock_20source_0',['CORTEX _SysTick clock source',['../group__CORTEX__SysTick__clock__source.html',1,'']]]
 ];
